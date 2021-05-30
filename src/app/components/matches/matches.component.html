@@ -1,0 +1,22 @@
+<div class="site-wrap">
+    <app-header></app-header>
+    <app-after-header title="Matches"></app-after-header>
+    <app-result [matchInput]="findedMatch"></app-result>
+    <!-- Section<app-next-match [nextMatchInput]="findedNextMatch"></app-next-match> -->
+   <!-- Section <app-coming-matches></app-coming-matches> -->
+    <div class="site-section bg-dark">
+        <div class="container">
+            <app-next-match [nextMatchInput]="laterMatch"></app-next-match>
+            <div class="row">
+                <div class="col-12 title-section">
+                    <h2 class="heading">Upcoming Match</h2>
+                </div>
+                <div class="col-lg-6 mb-4">
+                <app-coming-matches></app-coming-matches>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-videos></app-videos>
+    <app-blog></app-blog>
+</div>

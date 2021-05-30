@@ -1,0 +1,74 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">{{title}} Match</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <!-- give an id to the form -->
+        <form #addMatchForm="ngForm" (ngSubmit)="addOrEdittMatch()">
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="text" class="form-control" [(ngModel)]="match.teamOne" [ngModelOptions]="{standalone:true}"
+              placeholder="Team 1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="match.teamTwo" [ngModelOptions]="{standalone:true}"
+              placeholder="Team 2">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="match.scoreOne" [ngModelOptions]="{standalone:true}"
+              placeholder="Match 1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="match.scoreTwo" [ngModelOptions]="{standalone:true}"
+              placeholder="Match 2">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="match.category" [ngModelOptions]="{standalone:true}"
+              placeholder="Category">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" [(ngModel)]="match.scheduledAt"
+              [ngModelOptions]="{standalone:true}">
+          </div>
+          
+            <div>
+            <label for="status" class="form-control">Status:</label>
+          
+            <div >
+              <input id="played" type="radio" value="played" name="status" [(ngModel)]="match.status"
+                [ngModelOptions]="{standalone:true}">
+              <label for=" played">Played</label>
+            </div>
+
+            <div>
+              <input id="no" type="radio" value="onGoing" name="status" [(ngModel)]="match.status"
+                [ngModelOptions]="{standalone:true}">
+              <label for=" no">On Going</label>
+            </div>
+            <div>
+              <input id="later" type="radio" value="later" name="status" [(ngModel)]="match.status"
+                [ngModelOptions]="{standalone:true}">
+              <label for="later">Later</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <!-- // (addMatchForm.value) return all the values of the object inserted into the form -->
+            <input type="submit" class="btn btn-primary py-3 px-5" value="{{title}} Match">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

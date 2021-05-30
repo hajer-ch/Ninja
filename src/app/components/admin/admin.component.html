@@ -1,0 +1,88 @@
+
+<app-after-header title="Admin"></app-after-header>
+<div classe="site-section">
+    <div class="container">
+        <table class="table table-striped" >
+            <tr>
+                <th>Id</th>
+                <th>Score One</th>
+                <th>Score Two</th>
+                <th>Team One</th>
+                <th>Team Two</th>
+                <th>Category</th>
+                <th>scheduled At</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor = 'let m of matches'>
+                <td>{{m._id}}</td>
+                <td>{{m.teamOne}}</td>
+                <td>{{m.teamTwo}}</td>
+                <td>{{m.scoreOne}}</td>
+                <td>{{m.scoreTwo}}</td>
+                <td>{{m.category}}</td>
+                <td>{{m.scheduledAt}}</td>
+                <td>{{m.status}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="infoMatch(m._id)">Display</button>
+                    <button class="btn btn-success" (click)="editMatch(m._id)">Edit</button>
+                    <button class="btn btn-danger" (click)="delateMatch(m._id)">Delate</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Player Name</th>
+                <th>Position</th>
+                <th>age</th>
+                
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor = 'let x of players'>
+                <td>Id</td>
+                <td>{{x._id}}</td>
+                <td>{{x.playerName}}</td>
+                <td>{{x.position}}</td>
+                <td>{{x.age}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="infoPlayer(x._id)">Display</button>
+                    <button class="btn btn-success" (click)="editPlayer(x.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="delatePlayer(x._id)">Delate</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Team Name</th>
+                <th>Foundation</th>
+                <th>Country</th>
+                <th>Staduim</th>
+                
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor = 'let a of teams'>
+                <td>Id</td>
+                <td>{{a._id}}</td>
+                <td>{{a.teamName}}</td>
+                <td>{{a.country}}</td>
+                <td>{{a.staduim}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="infoTeam(a._id)">Display</button>
+                    <button class="btn btn-success" (click)="editTeam(a._id)">Edit</button>
+                    <button class="btn btn-danger" (click)="delateTeam(a._id)">Delate</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+

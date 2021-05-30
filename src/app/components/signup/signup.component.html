@@ -1,0 +1,116 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">Sign Up</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <!-- give an id to the form -->
+        <form [formGroup]='signUpForm'>
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="text" class="form-control" formControlName='fullName' placeholder="Name">
+          </div>
+          <div
+            *ngIf='signUpForm.controls["fullName"].invalid && (signUpForm.controls["fullName"].dirty || signUpForm.controls["fullName"].touched)'>
+            <div *ngIf='signUpForm.controls["fullName"].errors.maxlength' style="color:brown;">
+              This field must have at maximum 5 charcters
+            </div>
+            <div *ngIf='signUpForm.controls["fullName"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" formControlName='email' placeholder="Email Adress">
+          </div>
+          <span style="color: red;">{{msg}}</span>
+          <div
+            *ngIf='signUpForm.controls["email"].invalid && (signUpForm.controls["email"].dirty || signUpForm.controls["email"].touched)'>
+            <div *ngIf='signUpForm.controls["email"].errors.email' style="color:brown;">
+              Format email invalid </div>
+            <div *ngIf='signUpForm.controls["email"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+          </div>
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="password" class="form-control" formControlName='password' placeholder="Password">
+          </div>
+          <div
+            *ngIf='signUpForm.controls["password"].invalid && 
+            (signUpForm.controls["password"].dirty || 
+            signUpForm.controls["password"].touched)'>
+            <div *ngIf='signUpForm.controls["password"].errors.maxlength' style="color:brown;">
+              This field must have at maximum 25 charcters
+            </div>
+            <div *ngIf='signUpForm.controls["password"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+            <div *ngIf='signUpForm.controls["password"].errors.pattern' style="color:brown;">
+              At least 8 characters in length
+              Lowercase letters
+              Uppercase letters
+              Numbers
+              Special characters
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="password" class="form-control" formControlName='confirmPwd' placeholder=" Confirm Password">
+          </div>
+          <div *ngIf="signUpForm.controls['confirmPwd'].invalid &&
+              (signUpForm.controls['confirmPwd'].dirty ||
+              signUpForm.controls['confirmPwd'].touched)">
+            <div *ngIf="signUpForm.controls['confirmPwd'].errors.mustMatch" class="textdanger" style="color: brown;">
+              Confirm Pwd must match PWD
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="text" class="form-control" formControlName='address' placeholder="Adress">
+          </div>
+          <div
+            *ngIf='signUpForm.controls["address"].invalid && (signUpForm.controls["address"].dirty || signUpForm.controls["address"].touched)'>
+            <div *ngIf='signUpForm.controls["address"].errors.maxlength' style="color:brown;">
+              This field must have at maximum 5 charcters
+            </div>
+            <div *ngIf='signUpForm.controls["address"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+          </div>
+
+          
+          <div class="form-group">
+            <!-- give a name to each input -->
+            <input type="tel" class="form-control" formControlName='tel' placeholder="Phone Number">
+          </div>
+          <div
+            *ngIf='signUpForm.controls["tel"].invalid && (signUpForm.controls["tel"].dirty || signUpForm.controls["tel"].touched)'>
+            <div *ngIf='signUpForm.controls["tel"].errors.maxlength' style="color:brown;">
+              This field must have at maximum 5 charcters
+            </div>
+            <div *ngIf='signUpForm.controls["tel"].errors.required' style="color: brown;">
+              This field is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" [disabled]="signUpForm.invalid"
+             (click)="signup(signUpForm.value)" class="btn btn-primary btn-success py-3 px-5" value="Sign Up ">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
